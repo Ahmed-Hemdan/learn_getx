@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'view/Home.dart';
-import 'view/PageThree.dart';
+import 'view/HomePage.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      getPages: [
-        GetPage(name: "/PageThree" , page: () => const PageThree()),
-      ],
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
