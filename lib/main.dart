@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_getx/utilities/binding.dart';
 import 'package:learn_getx/view/HomePage.dart';
+import 'package:learn_getx/view/PageOne.dart';
+
+import 'view/PageTwo.dart';
 
 
 
@@ -18,11 +22,17 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      /* 
+      this binding for all app  
+      initialBinding: MyBinding(),
+      if you getout from screen the value stay on cuz this binding for all app not just one screen 
+      */
+      
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  HomePage(),
+      home: const HomePage(),
     );
   }
 }

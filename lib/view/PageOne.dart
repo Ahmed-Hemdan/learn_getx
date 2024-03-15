@@ -4,7 +4,6 @@ import 'package:learn_getx/controller/PageOneController.dart';
 
 class PageOne extends StatelessWidget {
   PageOne({super.key});
-  final contrllerr = Get.lazyPut(() => PageOneController());
   final PageOneController controller = Get.find();
  
   @override
