@@ -6,6 +6,9 @@ import 'package:learn_getx/view/PageTwo.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'middleware/SuperMiddleware.dart';
+import 'view/Super.dart';
+
 SharedPreferences? sharedPreferences;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,12 +35,18 @@ class MyApp extends StatelessWidget {
           page: () => const PageOne(),
           middlewares: [
             Middleware(),
+            SuperMiddleware(),
           ],
         ),
         GetPage(
           name: "/PageTwo",
           page: () => const PageTwo(),
-        )
+        ),
+        GetPage(
+          name: "/Super",
+          page: () => const Super(),
+        ),
+
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

@@ -5,6 +5,10 @@ import 'package:learn_getx/main.dart';
 
 
 class Middleware extends GetMiddleware{
+
+  @override
+  // TODO: implement priority
+  int? get priority => 2;
 @override 
 RouteSettings? redirect(String? route) {
     // TODO: implement redirect
