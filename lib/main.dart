@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_getx/middleware/middleware.dart';
+import 'package:learn_getx/services/SettingServices.dart';
 import 'package:learn_getx/view/PageOne.dart';
-import 'package:learn_getx/view/PageTwo.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'middleware/SuperMiddleware.dart';
-import 'view/Super.dart';
+Future initial()async{
+  await Get.putAsync(() => SettingServices().init());
+}
 
-SharedPreferences? sharedPreferences;
+
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  sharedPreferences = await SharedPreferences.getInstance();
+  await initial();
   runApp(const MyApp());
 }
 
@@ -25,33 +26,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-
-      // even if you use initialRoute app will check middleware first and navigate you to PageTwo
-
-      initialRoute: '/',
-      getPages: [
-        GetPage(
-          name: "/",
-          page: () => const PageOne(),
-          middlewares: [
-            Middleware(),
-            SuperMiddleware(),
-          ],
-        ),
-        GetPage(
-          name: "/PageTwo",
-          page: () => const PageTwo(),
-        ),
-        GetPage(
-          name: "/Super",
-          page: () => const Super(),
-        ),
-
-      ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      home: PageOne(),
     );
   }
 }
