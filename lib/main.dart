@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_getx/services/SettingServices.dart';
+import 'package:learn_getx/Localization/local.dart';
+
 import 'package:learn_getx/view/PageOne.dart';
 
 
-Future initial()async{
-  await Get.putAsync(() => SettingServices().init());
-}
+
 
 
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initial();
   runApp(const MyApp());
 }
 
@@ -26,11 +24,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      translations: MyLocal() ,
+      locale: Get.deviceLocale,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: PageOne(),
+      home: const PageOne(),
     );
   }
 }

@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_getx/services/SettingServices.dart';
+
+
 
 class PageOne extends StatelessWidget {
-   PageOne({super.key});
-  final SettingServices c = Get.find();
+   const PageOne({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Page One")),
+      appBar: AppBar(title:  Text("Home Page".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetX<SettingServices>(builder: (controller) {
-              return Text(controller.counter.value.toString());
-            }),
+
             ElevatedButton(onPressed: () {
-              c.increase();
-            },child: const Text("Counter increase"),),
+
+            },child:  Text("English".tr),),
             ElevatedButton(onPressed: () {
-              c.sharedPref.clear();
-            },child: const Text("Clear SharedPref"),),
+
+            },child:  Text("Arabic".tr),),
           ],
         ),
       ),
