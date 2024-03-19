@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_getx/Localization/LocalController.dart';
 import 'package:learn_getx/Localization/local.dart';
 
 import 'package:learn_getx/view/PageOne.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
 
-
+late SharedPreferences sharedpref;
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   sharedpref = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       translations: MyLocal() ,
-      locale: Get.deviceLocale,
+      locale: MyLocalController().initLang,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
