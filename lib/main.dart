@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_getx/Localization/LocalController.dart';
-import 'package:learn_getx/Localization/local.dart';
-
 import 'package:learn_getx/view/PageOne.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,8 +24,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      translations: MyLocal() ,
-      locale: MyLocalController().initLang,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
