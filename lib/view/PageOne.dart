@@ -13,15 +13,8 @@ class PageOne extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-                onPressed: () => Get.defaultDialog(
-                  title: "Dialog Title",
-                  titleStyle: TextStyle(color: Colors.blue , fontSize: 25 , fontWeight: FontWeight.bold),
-                  content: TextFormField(),
-                  confirm: TextButton(onPressed: () {}, child: Text("Submit")),
-                  cancel: TextButton(onPressed: () {}, child: Text("Cancel")),
-                  
-                ),
-                child: const Text("Show Dialog")),
+                onPressed: () => Get.snackbar("title", "nnfnmessage" , snackPosition: SnackPosition.values[2]),
+                child: const Text("Show Snackbar")),
           ],
         ),
       ),
